@@ -4,6 +4,9 @@ from django.urls import path, include
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -15,6 +18,7 @@ schema_view = get_schema_view(
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
+    url = os.getenv('API_URL')
 )
 
 urlpatterns = [

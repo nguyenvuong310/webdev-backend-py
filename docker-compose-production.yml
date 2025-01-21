@@ -1,0 +1,63 @@
+version: "3.7"
+
+services:
+  app:
+    image: vuong676/gscore
+    container_name: gscore
+    restart: always
+    env_file:
+      - .env.example
+    ports:
+      - "9000:8000"
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - gscore
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env.example
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    networks:
+      - gscore
+
+  redis:
+    image: redis:6.0.7
+    container_name: redis
+    restart: always
+    volumes:
+      - redis:/data
+    ports:
+      - 6379:6379
+    networks:
+      - gscore
+
+  redis-insight:
+    image: redis/redisinsight:latest
+    restart: always
+    depends_on:
+      - redis
+    ports:
+      - "5540:5540"
+    volumes:
+      - redis-insight:/data
+    networks:
+      - gscore
+
+volumes:
+  postgres:
+  redis:
+  redis-insight:
+
+networks:
+  gscore:
+    driver: bridge

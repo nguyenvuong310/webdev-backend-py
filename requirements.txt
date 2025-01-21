@@ -1,0 +1,11 @@
+Django
+psycopg2-binary 
+pandas 
+sqlalchemy
+django-redis
+drf-yasg
+djangorestframework
+django-rest-swagger
+gunicorn
+python-dotenv
+django-cors-headers

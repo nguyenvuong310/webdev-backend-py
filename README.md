@@ -23,6 +23,7 @@
 ## Development enviroment
 
 - First, create Redis and PostgreSQL (I chose PostgreSQL because it is strong for selecting data).
+  
   `docker compose up -d` hoặc `make container-up`
 - You can create a **Python virtual environment** if you don’t want to
   install packages directly on your machine.
@@ -33,9 +34,13 @@
 
   `pip3 install -r requirements.txt` hoặc `make install`
 
-- For migrate run `python3 manage.py migrate` hoặc `make migrate`
+- For migrate run
 
-- For run `python3 manage.py runserver` hoặc `make up`
+  `python3 manage.py migrate` hoặc `make migrate`
+
+- For run
+
+  `python3 manage.py runserver` hoặc `make up`
 
 - Run seed.py
 

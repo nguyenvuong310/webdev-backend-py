@@ -9,10 +9,8 @@ production:
 	docker-compose -f docker-compose-production.yml up -d
 
 up: 
-	npm run start:dev
+	python3 manage.py runserver 
 
-bootstrap:
-	npm install --force or --legacy-peer-deps
-	docker compose up -d
-	npm run start:dev
+install:
+	pip install -r requirements.txt
 

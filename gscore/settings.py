@@ -77,9 +77,10 @@ DATABASES = {
 REDIS_USERNAME = os.getenv('REDIS_USERNAME') 
 REDIS_PASSWORD = os.getenv('REDIS_PASSWORD')  
 REDIS_HOST = os.getenv('REDIS_HOST') 
+REDIS_PORT = os.getenv('REDIS_PORT')
 
 
-location = f'redis://{REDIS_USERNAME}:{REDIS_PASSWORD}@{REDIS_HOST}:6379' if REDIS_HOST != 'localhost' else f'redis://{REDIS_HOST}:6379'
+location = f'redis://{REDIS_USERNAME}:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}' if REDIS_HOST != 'localhost' else f'redis://{REDIS_HOST}:6379'
 
 
 CACHES = {

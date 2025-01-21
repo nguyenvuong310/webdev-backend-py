@@ -8,7 +8,6 @@ from django.db.models import ExpressionWrapper, FloatField , IntegerField
 from enums.group_type import GroupType
 from django.core.cache import cache
 
-
 @api_view(['GET'])
 def check_score(request, student_id):
     score = cache.get(f"student{student_id}")

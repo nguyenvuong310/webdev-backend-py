@@ -39,7 +39,7 @@
 
 - Run seed.py
 
-  `python3 src/database/seeds/seed.py`
+  `python3 seed/seed.py` hoặc `make seed`
 
   - Note\*: Change db_url to database path
 

@@ -5,12 +5,18 @@ build:
 push:
 	docker push vuong676/gscore:latest
 
-production:
-	docker-compose -f docker-compose-production.yml up -d
+conatainer-up:
+	docker-compose up -d
+
+container-down:
+	docker-compose down
 
 up: 
 	python3 manage.py runserver 
 
 install:
-	pip install -r requirements.txt
+	pip3 install -r requirements.txt
+
+migrate:
+	python3 manage.py migrate
 

@@ -20,6 +20,10 @@
 
 # Run
 
+## Development enviroment
+
+- First, create Redis and PostgreSQL (I chose PostgreSQL because it is strong for selecting data).
+  `docker compose up -d` hoặc `make container-up`
 - You can create a **Python virtual environment** if you don’t want to
   install packages directly on your machine.
 
@@ -27,7 +31,9 @@
 
   `source .venv/bin/activate`
 
-  `pip3 install -r requirement.txt` hoặc `make install`
+  `pip3 install -r requirements.txt` hoặc `make install`
+
+- For migrate run `python3 manage.py migrate` hoặc `make migrate`
 
 - For run `python3 manage.py runserver` hoặc `make up`
 
@@ -50,7 +56,7 @@
 **Backend**
 
 - Using [Onrender](https://render.com/) (Docker image - docker.io/vuong676/gscore:latest)
-- Link Deployed: https://gscore-backend.onrender.com/documentation
+- Link Deployed: https://gscore-backend.onrender.com/swagger
 
 **Database**: Using [Aiven Console](https://console.aiven.io/) (Since support free 5GB).
 
@@ -58,15 +64,11 @@
 
 - Check Scores Feature
 
-![Your Code Work](./screenshots/checkScoreApi.png)
+![Your Code Work](./screenshots/getScoreByStudentID.jpg)
 
 - Get Top Student By Group Type Feature
-  ![Your Code Work](./screenshots/topStudentApi.png)
+  ![Your Code Work](./screenshots/getTop10Api.jpg)
 
 - Retrieve subject score information for bar chart or circle chart.
 
-![Your Code Work](./screenshots/getChartApi.png)
-Beta
-0 / 0
-used queries
-1
+![Your Code Work](./screenshots/getChartApi.jpg)
